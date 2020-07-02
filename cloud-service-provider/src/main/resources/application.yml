@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: dev
+    #    active: production
+    include: db
+  jackson:
+    default-property-inclusion: non_null
+  messages:
+    basename: messages
+
+#mybatis:
+#  mapper-locations: classpath*:mapper/**.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
