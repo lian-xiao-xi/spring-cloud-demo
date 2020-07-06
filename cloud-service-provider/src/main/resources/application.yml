@@ -3,12 +3,19 @@ spring:
     active: dev
     #    active: production
     include: db
+  application:
+    name: service-provider
   jackson:
     default-property-inclusion: non_null
   messages:
     basename: messages
 
+
 #mybatis:
 #  mapper-locations: classpath*:mapper/**.xml
 #  configuration:
 #    map-underscore-to-camel-case: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka/

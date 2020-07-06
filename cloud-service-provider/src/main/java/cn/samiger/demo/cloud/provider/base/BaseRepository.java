@@ -1,4 +1,4 @@
-package cn.samiger.demo.cloud.base;
+package cn.samiger.demo.cloud.provider.base;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;

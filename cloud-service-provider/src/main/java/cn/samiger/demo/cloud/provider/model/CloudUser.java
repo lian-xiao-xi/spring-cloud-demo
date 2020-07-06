@@ -1,4 +1,4 @@
-package cn.samiger.demo.cloud.model;
+package cn.samiger.demo.cloud.provider.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
