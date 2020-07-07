@@ -20,7 +20,6 @@ public class UserController {
   @Autowired
   private RestTemplate restTemplate;
   
-  // TODO 解决报错
   @GetMapping("/one/{id}")
   public CloudUser allUsers(@PathVariable Long id) {
     List<ServiceInstance> instances = discoveryClient.getInstances("service-provider");
