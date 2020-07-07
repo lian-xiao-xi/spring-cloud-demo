@@ -1,0 +1,7 @@
+server:
+  port: 8801
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka/, http://localhost:10087/eureka/
+    registry-fetch-interval-seconds: 5 # 从注册中心拉取服务列表的时间间隔

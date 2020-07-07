@@ -1,0 +1,22 @@
+server:
+  port: 8802
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka/, http://localhost:10087/eureka/
+  instance:
+    lease-expiration-duration-in-seconds: 10 # 服务续约的时间间隔，即超过10秒没有向注册中心发送心跳，注册中心就会认为该服务失效
+    lease-renewal-interval-in-seconds: 5 # 5秒向注册中心发送一次心跳
+
+spring:
+  jpa:
+    open-in-view: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+    hibernate:
+      ddl-auto: update
+
+#logging:
+#  file: shengming.log
+#  level:
+#    root: WARN

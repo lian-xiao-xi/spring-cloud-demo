@@ -1,9 +1,5 @@
-server:
-  port: 10086
 spring:
+  profiles:
+    active: dev
   application:
     name: enreka-server
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:${server.port}/eureka/
