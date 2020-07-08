@@ -1,29 +1,24 @@
 package cn.samiger.demo.cloud.consumer.controller;
 
-import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import cn.samiger.demo.cloud.consumer.client.UserClient;
+import cn.samiger.demo.cloud.consumer.pojo.CloudUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("consumer/user")
-@DefaultProperties(defaultFallback = "fallback") // 定义类全局的熔断方法
 public class UserController {
+  
+  // feign 框架内部已经将 @FeignClient 标记的接口设为 @Primary 的，所以这里不用关于 idea 提示的错误
   @Autowired
-  private RestTemplate restTemplate;
+  private UserClient userClient;
   
   @GetMapping("/one/{id}")
-  @HystrixCommand // 标记该方法需要熔断
-  public String allUsers(@PathVariable Long id) {
-    String baseUrl = "http://service-provider/api/user/one/"+id;
-    return this.restTemplate.getForObject(baseUrl, String.class);
+  public CloudUser allUsers(@PathVariable Long id) {
+    return userClient.getUser(id);
   }
   
-  public String fallback() {
-    return "服务正忙。。。请稍候再试";
-  }
 }
