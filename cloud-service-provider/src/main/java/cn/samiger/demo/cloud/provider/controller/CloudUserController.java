@@ -21,11 +21,11 @@ public class CloudUserController {
   @GetMapping("/one/{id}")
   public CloudUser one(@PathVariable Long id) {
     // 模拟服务超时场景
-    try {
-      Thread.sleep(3000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
+//    try {
+//      Thread.sleep(3000);
+//    } catch (InterruptedException e) {
+//      e.printStackTrace();
+//    }
     return userService.getById(id);
   }
 }
