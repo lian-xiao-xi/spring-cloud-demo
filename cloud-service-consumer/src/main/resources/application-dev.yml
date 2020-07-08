@@ -5,3 +5,12 @@ eureka:
     service-url:
       defaultZone: http://localhost:10086/eureka/, http://localhost:10087/eureka/
     registry-fetch-interval-seconds: 5 # 从注册中心拉取服务列表的时间间隔
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000 # 设置hystrix的超时时间
