@@ -8,7 +8,6 @@ import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Enumeration;
 
 @Component
 public class LoginFilter extends ZuulFilter {
@@ -34,8 +33,8 @@ public class LoginFilter extends ZuulFilter {
     HttpSession session = request.getSession();
     Object token = session.getAttribute("token");
     if(StringUtils.isEmpty(token)) {
-      context.setSendZuulResponse(false);
-      context.setResponseBody("{\"status\":\"401\", \"text\":\"request error!\"}");
+//      context.setSendZuulResponse(false);
+//      context.setResponseBody("{\"status\":\"401\", \"text\":\"request error!\"}");
     }
     context.set("token", token);
     return null;

@@ -13,7 +13,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 3000 # 设置hystrix的超时时间
+            timeoutInMilliseconds: 3000 # 设置hystrix的超时时间，可以尝试改变这个值的大小观察接口返回值的变化
 feign:
   hystrix:
     enabled: true # 开启Feign的熔断功能

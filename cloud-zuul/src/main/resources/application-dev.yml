@@ -3,7 +3,7 @@ server:
 
 zuul:
   routes:
-    service-provider: /provider/**
+    service-consumer: /consumer/**
   prefix: /api
 
 eureka:
