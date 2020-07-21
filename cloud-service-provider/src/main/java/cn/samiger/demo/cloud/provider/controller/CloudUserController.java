@@ -20,7 +20,7 @@ public class CloudUserController {
   
   @GetMapping("/one/{id}")
   public CloudUser one(@PathVariable Long id) {
-    // 模拟连接超时，触发消费方熔断器
+    // 模拟连接超时，触发消费方容错框架的服务降级
     if(id == 2) {
       try {
         Thread.sleep(3000);
